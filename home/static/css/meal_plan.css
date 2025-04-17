@@ -1,0 +1,167 @@
+/* General Page Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+/* Back Button */
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #00c6ff;
+    border: 2px solid #00c6ff;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s ease-in-out;
+}
+
+.back-button:hover {
+    background: #00c6ff;
+    color: #0f2027;
+}
+
+/* Main Container */
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    border: 2px solid #00c6ff;
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.4);
+    animation: fadeIn 1s ease-in-out;
+    opacity: 1;
+    transition: 0.5s ease-in-out;
+}
+
+/* Headings */
+h2 {
+    font-size: 28px;
+    color: #00c6ff;
+    text-shadow: 0 0 10px #00c6ff;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+label {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 60%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #00c6ff;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 16px;
+    text-align: center;
+}
+
+input:focus {
+    border-color: #0088cc;
+    box-shadow: 0 0 10px #00c6ff;
+    outline: none;
+}
+
+/* Submit Button */
+button {
+    background: #00c6ff;
+    border: none;
+    padding: 12px;
+    width: 60%;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 15px;
+}
+
+button:hover {
+    background: #0088cc;
+}
+
+/* Loading, Error & Warning Messages */
+.loading, .error, .warning {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.error {
+    color: red;
+}
+
+.warning {
+    color: yellow;
+}
+
+/* Meal Cards */
+.meal-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid #00c6ff;
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.4);
+    animation: fadeIn 1s ease-in-out;
+    margin-top: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.meal-card:hover {
+    transform: scale(1.05);
+}
+
+/* View Recipe Button */
+.view-recipe {
+    display: inline-block;
+    text-align: center;
+    padding: 8px 12px;
+    background: #00c6ff;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+    margin-top: 10px;
+}
+
+.view-recipe:hover {
+    background: #0088cc;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

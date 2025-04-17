@@ -1,0 +1,129 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CaloriX - Features</title>
+    <link rel="stylesheet" href="{% static 'css/features.css' %}">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <div class="neon-circle">
+                <span class="logo">CaloriX</span>
+            </div>
+        </div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/features">Features</a></li>
+            <li><a href="/workouts">workouts</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+    <!-- Features Section -->
+    <section class="features">
+        <h1 class="section-title">Powerful Gym & Calorie Tracker Features</h1>
+        <p class="section-subtitle">Elevate your fitness journey with cutting-edge technology.</p>
+
+        <div class="features-container">
+           
+          <!-- Feature 1 - Personalized Workout Plans -->
+<div class="feature-card">
+    <h2><a href="/workout_plan/" class="feature-link">Personalized Workout Plans</a></h2>
+    
+    <p>Get customized workout routines based on your fitness level and goals.</p>
+</div>
+
+            <!-- Feature 2-->
+            <div class="feature-card">
+                <h2><a href="/nutrient_analysis/" class="feature-link">Macro Nutrient Analysis</a></h2>
+                
+                <p>Understand the exact composition of your meals to achieve balanced nutrition.</p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="feature-card">
+                <h2><a href="/meal_plan/" class="feature-link">Meal Recommondation Plans</a></h2>
+                <h2></h2>
+                <p>Receive meal recommendations based on your dietary preferences and calorie goals.</p>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="feature-card">
+                <h2><a href="/hydration_calculator/" class="feature-link">Hydration & BMI Calculator</a></h2>
+
+                
+                <p>Stay hydrated with intelligent water intake reminders and post-workout recovery insights.</p>
+            </div>
+        </div>
+
+        <!-- BMI Calculator Section -->
+        <div class="bmi-section">
+            <h2 class="bmi-title">Calculate Your BMI</h2>
+            <div class="bmi-container">
+                <label for="weight">Weight (kg):</label>
+                <input type="number" id="weight" placeholder="Enter weight (kg)" min="1" required>
+
+
+
+                <label for="height">Height (cm):</label>
+                <input type="number" id="height" placeholder="Enter height (cm)" min="1" required>
+
+
+
+
+                <button onclick="calculateBMI()">Calculate BMI</button>
+
+                <div class="bmi-result">
+                    <h3>Your BMI: <span id="bmi-value">--</span></h3>
+                    <p id="bmi-message"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth animations for feature cards
+        document.addEventListener("DOMContentLoaded", function() {
+            const cards = document.querySelectorAll('.feature-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('show');
+                }, index * 150);
+            });
+        });
+
+        // BMI Calculator Function
+        function calculateBMI() {
+            let weight = document.getElementById("weight").value;
+            let height = document.getElementById("height").value;
+            
+            if (weight > 0 && height > 0) {
+                let bmi = (weight / ((height / 100) ** 2)).toFixed(2);
+                document.getElementById("bmi-value").innerText = bmi;
+
+                let message = "";
+                if (bmi < 18.5) {
+                    message = "Underweight";
+                } else if (bmi >= 18.5 && bmi < 24.9) {
+                    message = "Normal weight";
+                } else if (bmi >= 25 && bmi < 29.9) {
+                    message = "Overweight";
+                } else {
+                    message = "Obese";
+                }
+
+                document.getElementById("bmi-message").innerText = message;
+            } else {
+                alert("Please enter valid weight and height values!");
+            }
+        }
+    </script>
+
+</body>
+</html>   

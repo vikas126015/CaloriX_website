@@ -1,0 +1,67 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hydration & BMI Calculator</title>
+    <a href="/features/" class="back-button">⬅ Back</a>
+   
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/hydration_styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Hydration Section -->
+    <div class="hydration-section">
+        <h2 class="hydration-title">Hydration & BMI Calculator</h2>
+        
+        <div class="hydration-container">
+
+            <form method="POST" id="hydrationForm">
+                {% csrf_token %}
+                <label for="weight">Enter Your Weight (kg):</label>
+                <input type="number" name="weight" id="weightInput" step="0.1" required>
+            
+                <label for="height">Enter Your Height (cm):</label>
+                <input type="number" name="height" id="heightInput" step="0.1" required>
+            
+                <button type="submit">Calculate</button>
+                <button type="button" id="clearBtn">Clear</button>
+            </form>
+            
+            
+            {% if hydration.weight and hydration.height %}
+            <div class="results" id="resultsContainer">
+                <p>Your Weight: <span class="highlight">{{ hydration.weight }} kg</span></p>
+                <p>Your Height: <span class="highlight">{{ hydration.height }} cm</span></p>
+                <p>Your BMI: <span class="highlight">{{ hydration.bmi }}</span></p>
+                <p>Health Status: <span class="highlight">{{ hydration.health_status }}</span></p>
+                <p>Recommended Water Intake: <span class="highlight">{{ hydration.daily_water_requirement }} L/day</span></p>
+                <p>Recommended Daily Calories: <span class="highlight">{{ hydration.daily_calorie_requirement }} kcal</span></p>
+            </div>
+        {% endif %}
+        
+        </div>
+    </div>
+   
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("clearBtn").addEventListener("click", function() {
+                let resultsContainer = document.getElementById("resultsContainer");
+                if (resultsContainer) {
+                    resultsContainer.innerHTML = ""; // Remove all result values
+                }
+            });
+        });
+    </script>
+
+    
+    
+</body>
+</html>

@@ -1,0 +1,213 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+    color: white;
+    overflow-x: hidden;
+}
+
+
+
+/* Navbar */
+.navbar {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    text-align: center;
+    position: fixed;
+    width: 60%; /* Adjust width as needed */
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%); /* Centers it */
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 50px;
+    padding: 15px 30px;
+    box-shadow: 0 0 20px rgba(0, 198, 255, 0.3);
+}
+
+/* Navbar Logo */
+.navbar .logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-size: 28px;
+    font-weight: bold;
+    font-family: 'Orbitron', sans-serif;
+    color: #00c6ff;
+    text-shadow: 0 0 10px #00c6ff, 0 0 20px #00c6ff;
+}
+
+/* Centered Navbar Links */
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 30px;
+}
+
+.navbar ul li {
+    display: inline;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.navbar ul li a:hover {
+    color: #00c6ff;
+    text-shadow: 0 0 15px #00c6ff;
+}
+
+/* About Section */
+.about {
+    text-align: center;
+    padding: 120px 50px;
+    background: linear-gradient(to right, #1a1a2e, #16213e);
+    box-shadow: 0 0 20px rgba(0, 198, 255, 0.3);
+    border-radius: 10px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.section-title {
+    font-size: 42px;
+    font-weight: bold;
+    color: #00f7ff;
+    text-shadow: 0 0 15px #00f7ff, 0 0 30px #00f7ff;
+    animation: glow 2s infinite alternate;
+}
+
+.section-subtitle {
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: #d1d1d1;
+    font-weight: 500;
+}
+
+/* About Content */
+.about-content {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 15px;
+    width: 60%;
+    margin: auto;
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.5);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 0.6s ease-in-out;
+}
+
+.about-content.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about-content p {
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* Team Section */
+.team {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.team-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.team-card {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    width: 250px;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.3);
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.5s ease-in-out;
+}
+
+.team-card.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.team-card h3 {
+    font-size: 20px;
+    margin-top: 10px;
+    color: #00c6ff;
+}
+
+.team-card p {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #ddd;
+}
+
+/* Button Styling */
+.team-card a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: #00c6ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.team-card a:hover {
+    background: #0094cc;
+}
+
+/* Animations */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 15px #00f7ff, 0 0 30px #00f7ff;
+    }
+    100% {
+        text-shadow: 0 0 25px #00f7ff, 0 0 40px #00f7ff;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Reveal Elements on Scroll */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s ease-in-out;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}

@@ -1,0 +1,77 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.auth-container {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 198, 255, 0.5);
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: bold;
+    font-family: 'Orbitron', sans-serif;
+    color: #00c6ff;
+    text-shadow: 0 0 10px #00c6ff, 0 0 20px #00c6ff;
+    margin-bottom: 10px;
+}
+
+.quote {
+    font-size: 14px;
+    font-style: italic;
+    color: #ddd;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    background: #00c6ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background: #0088cc;
+}
+
+p a {
+    color: #00c6ff;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}

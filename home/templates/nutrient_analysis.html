@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Macro & Nutrient Analysis</title>
+    <link rel="stylesheet" href="/static/css/nutrient_analysis.css">
+</head>
+<body>
+
+    <a href="/features/" class="back-button">⬅ Back</a>
+
+    <div class="container">
+        <h2>🥗 Macro & Nutrient Analysis</h2>
+        <p class="subtitle">Understand the exact composition of your meals to achieve balanced nutrition.</p>
+
+        <form method="POST" id="analysis-form">
+            {% csrf_token %}
+            <input type="text" id="food-input" name="food_item" placeholder="Enter food name (e.g., Chicken Salad)" required>
+            <button type="submit" class="analyze-btn">Analyze</button>
+            <button type="button" id="clear-btn" class="clear-btn">Clear</button>
+        </form>
+
+        <div id="result-container">
+            {% if nutrition_data %}
+                <div class="results">
+                    <h3>Nutrition Facts for: <span>{{ nutrition_data.name|title }}</span></h3>
+                    <p><strong>Calories:</strong> {{ nutrition_data.calories }} kcal</p>
+                    <p><strong>Protein:</strong> {{ nutrition_data.protein_g }} g</p>
+                    <p><strong>Fat:</strong> {{ nutrition_data.fat_total_g }} g</p>
+                    <p><strong>Carbohydrates:</strong> {{ nutrition_data.carbohydrates_total_g }} g</p>
+                    <p><strong>Fiber:</strong> {{ nutrition_data.fiber_g }} g</p>
+                    <p><strong>Sugar:</strong> {{ nutrition_data.sugar_g }} g</p>
+                    <p><strong>Sodium:</strong> {{ nutrition_data.sodium_mg }} mg</p>
+                    <p><strong>Potassium:</strong> {{ nutrition_data.potassium_mg }} mg</p>
+                    <p><strong>Cholesterol:</strong> {{ nutrition_data.cholesterol_mg }} mg</p>
+                </div>
+            {% elif error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let container = document.querySelector(".container");
+            container.classList.add("show");
+
+            document.getElementById("clear-btn").addEventListener("click", function () {
+                document.getElementById("food-input").value = ""; // Clear input
+                document.getElementById("result-container").innerHTML = ""; // Remove results
+            });
+        });
+    </script>
+
+</body>
+</html>

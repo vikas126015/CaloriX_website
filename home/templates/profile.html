@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+
+   
+</head>
+<body>
+
+<div class="profile-container">
+    <h2>Welcome, {{ profile.user.username }}!</h2>
+    <img src="{{ profile.profile_picture.url }}" alt="Profile Picture" class="profile-img">
+    <div class="details">
+        <p><strong>Email:</strong> {{ profile.user.email }}</p>
+        <p><strong>Age:</strong> {{ profile.age }}</p>
+        <p><strong>Gender:</strong> {{ profile.gender }}</p>
+        <p><strong>Height:</strong> {{ profile.height }} cm</p>
+        <p><strong>Weight:</strong> {{ profile.weight }} kg</p>
+        <p><strong>Bio:</strong> {{ profile.bio }}</p>
+    </div>
+    <a href="{% url 'edit_profile' %}" class="edit-btn">Edit Profile</a>
+    <a href="{% url 'home' %}" class="edit-btn">Home</a>
+</div>
+
+</body>
+</html>

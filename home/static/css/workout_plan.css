@@ -1,0 +1,212 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* Back Button */
+.back-button {
+    display: inline-block;
+    text-align: center;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #00c6ff;
+    border: 2px solid #00c6ff;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s ease-in-out;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.back-button:hover {
+    background: #00c6ff;
+    color: #0f2027;
+}
+
+/* Scrollbar Fix */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #00c6ff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #00c6ff;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0088cc;
+}
+
+/* Container */
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    width: 450px;
+    text-align: center;
+    border: 2px solid #00c6ff;
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.4);
+    animation: fadeIn 1s ease-in-out;
+    transform: translateY(30px);
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.container.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Headings */
+h2 {
+    font-size: 28px;
+    color: #00c6ff;
+    text-shadow: 0 0 10px #00c6ff;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+select,
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 2px solid #00c6ff;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+select:focus,
+input:focus {
+    border-color: #0088cc;
+    box-shadow: 0 0 10px #00c6ff;
+    outline: none;
+}
+
+/* Submit Button */
+button {
+    background: #00c6ff;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 20px;
+}
+
+button:hover {
+    background: #0088cc;
+}
+
+/* Workout Plan Display */
+.workout-plan {
+    margin-top: 25px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    border: 2px solid #00c6ff;
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.4);
+    animation: slideUp 1s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Adding animation delay */
+.container.show,
+.workout-plan {
+    animation-delay: 0.3s;
+}
+
+/* Dropdown Select Styling */
+select {
+    width: 90%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 2px solid #00c6ff;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 16px;
+    transition: 0.3s;
+    appearance: none; /* Removes default browser styling */
+    cursor: pointer;
+}
+
+/* Ensure options are clearly visible */
+select option {
+    background: #0f2027;
+    color: white;
+    font-size: 16px;
+}
+
+/* When dropdown is focused */
+select:focus {
+    border-color: #0088cc;
+    box-shadow: 0 0 10px #00c6ff;
+    outline: none;
+}
+
+/* Hover effect on dropdown options */
+select option:hover {
+    background: #00c6ff;
+    color: #0f2027;
+}
+

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - CaloriX</title>
+    <link rel="stylesheet" href="/static/css/auth.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="logo">CaloriX</div>
+        <p class="quote">"Every calorie counts, every workout matters. Stay consistent, stay strong!"</p>
+        <h2>Login to CaloriX</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn">Login</button>
+        </form>
+        <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+    </div>
+</body>
+</html>

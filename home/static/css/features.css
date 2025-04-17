@@ -1,0 +1,188 @@
+
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    color: white;
+}
+
+
+
+/* Navbar */
+.navbar {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    text-align: center;
+    position: fixed;
+    width: 60%; /* Adjust width as needed */
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%); /* Centers it */
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 50px;
+    padding: 15px 30px;
+    box-shadow: 0 0 20px rgba(0, 198, 255, 0.3);
+}
+
+/* Navbar Logo */
+.navbar .logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-size: 28px;
+    font-weight: bold;
+    font-family: 'Orbitron', sans-serif;
+    color: #00c6ff;
+    text-shadow: 0 0 10px #00c6ff, 0 0 20px #00c6ff;
+}
+
+/* Centered Navbar Links */
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 30px;
+}
+
+.navbar ul li {
+    display: inline;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.navbar ul li a:hover {
+    color: #00c6ff;
+    text-shadow: 0 0 15px #00c6ff;
+}
+
+
+/* Features Section */
+.features {
+    text-align: center;
+    padding: 120px 50px;
+}
+
+.section-title {
+    font-size: 42px;
+    font-weight: bold;
+    color: #00c6ff;
+    text-shadow: 0 0 10px #00c6ff;
+}
+
+.section-subtitle {
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: #ddd;
+}
+
+/* Feature Cards */
+.features-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    width: 340px;
+    text-align: center;
+    transform: translateY(50px);
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.4);
+}
+
+.feature-card.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.feature-card h2 {
+    color: #00c6ff;
+    font-size: 22px;
+}
+
+.feature-card p {
+    color: white;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* BMI Calculator */
+.bmi-section {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.bmi-title {
+    font-size: 28px;
+    color: #00c6ff;
+    text-shadow: 0 0 10px #00c6ff;
+}
+
+.bmi-container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    width: 400px;
+    margin: auto;
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.4);
+}
+
+.bmi-container input {
+    width: 90%;
+    padding: 8px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+}
+
+.bmi-container button {
+    background: #00c6ff;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.bmi-container button:hover {
+    background: #0088cc;
+}
+    
+
+
+/* Ensures all links are always neon blue */
+a {
+    color: #00c6ff; /* Neon Blue */
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+/* Hover effect */
+a:hover {
+    color: #0088cc; /* Slightly darker blue */
+    text-shadow: 0 0 10px #00c6ff;
+}
+
+/* Override visited link color */
+a:visited {
+    color: #00c6ff !important; /* Keeps the color the same */
+}

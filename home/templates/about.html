@@ -1,0 +1,99 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CaloriX - About Us</title>
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <div class="neon-circle">
+                <span class="logo">CaloriX</span>
+            </div>
+        </div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/features">Features</a></li>
+            <li><a href="/workouts">workouts</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- About Us Section -->
+    <section class="about">
+        <h1 class="section-title">About CaloriX</h1>
+        <p class="section-subtitle">Your ultimate fitness and calorie tracking companion.</p>
+        
+        <div class="about-content">
+            <p>
+                At <strong>CaloriX</strong>, we aim to revolutionize health and fitness tracking through advanced 
+                technology. Our platform provides accurate calorie tracking, AI-driven meal planning, 
+                personalized workout routines, and real-time progress monitoring. Whether you're a beginner 
+                or a professional athlete, CaloriX helps you stay on top of your fitness goals.
+            </p>
+        </div>
+    </section>
+
+    <!-- Meet Our Team Section -->
+    <section class="team">
+        <h2 class="section-title">Meet Our Team</h2>
+        <p class="section-subtitle">The passionate minds behind CaloriX</p>
+
+        <div class="team-container">
+            <!-- Team Member 1 -->
+            <div class="team-card">
+               
+                <h3>T.V.Sai Balaram</h3>
+                <p>Data Analyst</p>
+                <a href="https://saibalaramportfolio.onrender.com/" target="_blank">View Portfolio</a>
+            </div>
+
+            <!-- Team Member 2 -->
+            <div class="team-card">
+              
+                <h3>Nithish Kumar.K</h3>
+                <p>Data Analyst</p>
+                <a href="https://nithishportfolio.onrender.com" target="_blank">View Portfolio</a>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="team-card">
+               
+                <h3>D.V.Vikas</h3>
+                <p>Data Analyst</p>
+                <a href="https://vikasdevarakondaportfolio.onrender.com" target="_blank">View Portfolio</a>
+            </div>
+
+
+</body>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let revealElements = document.querySelectorAll(".reveal, .team-card, .about-content");
+    
+        function revealOnScroll() {
+            let windowHeight = window.innerHeight;
+    
+            revealElements.forEach(function (el) {
+                let elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 50) {
+                    el.classList.add("show");
+                }
+            });
+        }
+    
+        window.addEventListener("scroll", revealOnScroll);
+        revealOnScroll(); // Trigger on page load
+    });
+    </script>
+    
+
+</html>

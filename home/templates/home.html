@@ -1,0 +1,195 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CaloriX - Your AI-Powered Fitness Companion</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="{% static 'js/home.js' %}" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Ensure the theme transition is smooth */
+        html {
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-animation"></div>
+    
+    <!-- Updated Theme Switch Button -->
+    <label class="theme-switch-wrapper" for="theme-toggle">
+        <div class="theme-switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="switch-handle"></span>
+        </div>
+    </label>
+
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="logo-container">
+                <div class="neon-circle">
+                    <span class="logo">CX</span>
+                </div>
+                <span class="logo-text">CaloriX</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                
+                {% if user.is_authenticated %}
+                    <li><a href="/features" class="nav-link">Features</a></li>
+                    <li><a href="/workouts" class="nav-link">Workouts</a></li>
+                    <li><a href="/about" class="nav-link">About</a></li>
+                    <li><a href="/contact" class="nav-link">Contact</a></li>
+                    <li><a href="/profile" class="nav-link">Profile</a></li>
+                    <li><a href="/logout" class="btn btn-neon">Logout</a></li>
+                {% else %}
+                    <li><a href="/login" class="btn btn-neon">Login</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Enhanced Hero Section -->
+    <section class="hero">
+        <div class="hero-content" data-aos="fade-up">
+            <h1 class="gradient-text">Transform Your Life with CaloriX</h1>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+                Your all-in-one AI-powered fitness companion for a healthier, stronger you
+            </p>
+
+            <div class="hero-details">
+                <div class="detail-box" data-aos="fade-right" data-aos-delay="300">
+                    <h3>🤖 Advanced AI Technology</h3>
+                    <p>Our cutting-edge AI analyzes your meals through photos and provides instant nutritional information</p>
+                </div>
+                <div class="detail-box" data-aos="fade-up" data-aos-delay="400">
+                    <h3>🎯 Smart Goal Setting</h3>
+                    <p>Set and track personalized fitness goals with adaptive recommendations</p>
+                </div>
+               
+            </div>
+
+            <!-- Enhanced Stats Section -->
+            <div class="stats" data-aos="fade-up" data-aos-delay="600">
+                <div class="stat-box">
+                    <span class="counter" data-target="10000">0</span>+
+                    <p>Active Users</p>
+                </div>
+                <div class="stat-box">
+                    <span class="counter" data-target="500000">0</span>
+                    <p>Meals Tracked</p>
+                </div>
+                <div class="stat-box">
+                    <span class="counter" data-target="95">0</span>%
+                    <p>Success Rate</p>
+                </div>
+            </div>
+
+            <div class="hero-buttons" data-aos="fade-up" data-aos-delay="700">
+                {% if not user.is_authenticated %}
+                    <a href="/signup" class="btn btn-primary pulse">Start Your Journey Today</a>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Features Section -->
+    <section class="features" data-aos="fade-up">
+        <h2 class="section-title">Powerful Features for Your Fitness Journey</h2>
+        <div class="features-container">
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                <h3>📸 Smart Food Recognition</h3>
+                <p>Simply take a photo of your meal and let our AI identify and calculate nutrients instantly</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                <h3>🎯 Custom Meal Plans</h3>
+                <p>Get personalized meal recommendations based on your goals and preferences</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                <h3>💪 Workout Tracking</h3>
+                <p>Track your exercises, sets, reps, and see your progress over time</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                <h3>📊 Progress Analytics</h3>
+                <p>Detailed charts and insights to keep you motivated and on track</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                <h3>🤝 Community Support</h3>
+                <p>Connect with like-minded individuals and share your fitness journey</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+                <h3>🎮 Gamification</h3>
+                <p>Earn rewards and achievements as you reach your fitness goals</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 CaloriX. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Updated Theme Switch Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            html.setAttribute('data-theme', savedTheme);
+            themeToggle.checked = savedTheme === 'light';
+
+            // Theme switch handler
+            themeToggle.addEventListener('change', function() {
+                if (this.checked) {
+                    html.setAttribute('data-theme', 'light');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    html.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+
+            // Initialize AOS
+            AOS.init({
+                duration: 1000,
+                once: true
+            });
+
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Counter animation
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const increment = target / 200;
+                
+                const updateCounter = () => {
+                    const count = +counter.innerText;
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + increment);
+                        setTimeout(updateCounter, 1);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                
+                updateCounter();
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workouts | CaloriX</title>
+    <link rel="stylesheet" href="{% static 'css/workouts.css' %}">
+</head>
+<body>
+
+    
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <div class="neon-circle">
+                <span class="logo">CaloriX</span>
+            </div>
+        </div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/features">Features</a></li>
+            <li><a href="/workouts">workouts</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    
+
+<!-- Page Loader Animation -->
+<div class="page-loader"></div>
+
+
+<!-- Workouts Section -->
+<div class="container">
+    <h2 class="page-title">Workout Exercises</h2>
+    <div class="workout-grid">
+        {% for workout in workouts %}
+        <div class="workout-card">
+            <div class="workout-image">
+                <img src="{{ workout.image_url }}" alt="{{ workout.name }}">
+            </div>
+            <div class="workout-details">
+                <h3>{{ workout.name }}</h3>
+                <p><strong>Benefits:</strong> {{ workout.benefits }}</p>
+                <p><strong>Age Limit:</strong> {{ workout.age_limit }}</p>
+                <p><strong>Process:</strong> {{ workout.process }}</p>
+                <button class="video-button" onclick="openModal('{{ workout.video_url }}')">
+                    <img src="https://cdn-icons-png.flaticon.com/512/0/375.png" alt="Play Video">
+                </button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Video Modal -->
+<div id="videoModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <iframe id="videoFrame" src="" allowfullscreen></iframe>
+    </div>
+</div>
+
+<script>
+    // Open Modal with Video
+    function openModal(videoUrl) {
+        document.getElementById("videoModal").style.display = "flex";
+        document.getElementById("videoFrame").src = videoUrl;
+    }
+
+    // Close Modal
+    function closeModal() {
+        document.getElementById("videoModal").style.display = "none";
+        document.getElementById("videoFrame").src = "";  // Stop video playback
+    }
+
+    // Add page animation effect
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelector(".container").classList.add("show");
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>

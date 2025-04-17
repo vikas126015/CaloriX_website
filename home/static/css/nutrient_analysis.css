@@ -1,0 +1,143 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364); /* Same as Workout Page */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* Page Container */
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    border: 2px solid #00c6ff;
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.4);
+    animation: fadeIn 0.8s ease-in-out;
+    transform: translateY(0); /* Page starts directly in center */
+    opacity: 1;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+/* Headings */
+h2 {
+    font-size: 28px;
+    color: #00c6ff;
+    text-shadow: 0 0 10px #00c6ff;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+input {
+    width: 50%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 2px solid #00c6ff;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 16px;
+    transition: 0.3s;
+    text-align: center;
+}
+
+input:focus {
+    border-color: #0088cc;
+    box-shadow: 0 0 10px #00c6ff;
+    outline: none;
+}
+
+/* Submit Button */
+button {
+    background: #00c6ff;
+    border: none;
+    padding: 12px;
+    width: 50%;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 20px;
+}
+
+button:hover {
+    background: #0088cc;
+    transform: scale(1.05);
+}
+
+/* Meal Cards */
+.meal-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid #00c6ff;
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.4);
+    animation: fadeIn 1s ease-in-out;
+    margin-top: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.meal-card:hover {
+    transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Back Button */
+.back-button {
+    display: inline-block;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #00c6ff;
+    border: 2px solid #00c6ff;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+}
+
+.back-button:hover {
+    background: #00c6ff;
+    color: #0f2027;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 198, 255, 0.6);
+}

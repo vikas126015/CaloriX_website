@@ -1,0 +1,474 @@
+/* Root Variables and Theme */
+:root {
+    --primary-color: #00e1ff;
+    --secondary-color: #ff00ff;
+    --background-dark: #001f3f;
+    --background-light: #f0f8ff;
+    --text-light: #ffffff;
+    --text-dark: #333333;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-bg-dark: rgba(0, 0, 0, 0.3);
+    --gradient-primary: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    --shadow-neon: 0 0 20px var(--primary-color);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="light"] {
+    --background-dark: #f0f8ff;
+    --text-light: #333333;
+    --text-dark: #ffffff;
+    --glass-bg: rgba(0, 0, 0, 0.1);
+    --glass-bg-dark: rgba(255, 255, 255, 0.9);
+}
+
+/* Reset and Base Styles */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--background-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 1rem;
+}
+
+/* Utility Classes */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Navbar Styles */
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: rgba(0, 31, 63, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--primary-color);
+    box-shadow: var(--shadow-neon);
+    transition: var(--transition-smooth);
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.neon-circle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-neon);
+    animation: pulse 2s infinite;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.logo-text {
+    font-size: 2rem;
+    font-weight: 700;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: var(--shadow-neon);
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    list-style: none;
+}
+
+.nav-link {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    position: relative;
+    transition: var(--transition-smooth);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-primary);
+    transition: var(--transition-smooth);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+    text-shadow: 0 0 10px var(--primary-color);
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+    cursor: pointer;
+}
+
+.btn-neon {
+    background: var(--gradient-primary);
+    color: var(--text-dark);
+    border: none;
+    box-shadow: var(--shadow-neon);
+}
+
+.btn-neon:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px var(--primary-color);
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 6rem 2rem;
+    background: linear-gradient(rgba(0, 31, 63, 0.8), rgba(0, 31, 63, 0.9)),
+                url('https://source.unsplash.com/1600x900/?fitness,gym') no-repeat center/cover;
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 1000px;
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    animation: fadeInUp 1s ease;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+    color: rgba(255, 255, 255, 0.9);
+    animation: fadeInUp 1s ease 0.2s;
+}
+
+/* Hero Details */
+.hero-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 4rem 0;
+}
+
+.detail-box {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: var(--transition-smooth);
+}
+
+.detail-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 225, 255, 0.2);
+}
+
+/* Stats Section */
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin: 4rem 0;
+    padding: 2rem;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-box {
+    text-align: center;
+    animation: float 3s ease-in-out infinite;
+}
+
+.counter {
+    font-size: 3.5rem;
+    font-weight: 700;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: var(--shadow-neon);
+}
+
+/* Features Section */
+.features {
+    padding: 6rem 2rem;
+    background: var(--glass-bg-dark);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 4rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.features-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem;
+}
+
+.feature-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: var(--transition-smooth);
+    text-align: left;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 225, 255, 0.2);
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Footer */
+footer {
+    background: var(--glass-bg-dark);
+    padding: 2rem;
+    text-align: center;
+    border-top: 2px solid var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-content {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .stats {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .features-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-light: #ffffff;
+        --text-dark: #333333;
+        --glass-bg: rgba(255, 255, 255, 0.05);
+        --glass-bg-dark: rgba(0, 0, 0, 0.5);
+    }
+}
+
+/* Theme Switch Button */
+.theme-switch-wrapper {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.theme-switch {
+    width: 60px;
+    height: 30px;
+    background: var(--gradient-primary);
+    border-radius: 15px;
+    position: relative;
+    box-shadow: var(--shadow-neon);
+    transition: var(--transition-smooth);
+}
+
+.theme-switch:hover {
+    box-shadow: 0 0 30px var(--primary-color);
+}
+
+.switch-handle {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 26px;
+    height: 26px;
+    background: white;
+    border-radius: 50%;
+    transition: var(--transition-smooth);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.switch-handle::before {
+    content: '🌙';
+    font-size: 16px;
+}
+
+#theme-toggle {
+    display: none;
+}
+
+#theme-toggle:checked + .switch-handle {
+    transform: translateX(30px);
+}
+
+#theme-toggle:checked + .switch-handle::before {
+    content: '☀️';
+}
+
+/* Theme Transition Effects */
+.navbar,
+.feature-card,
+.detail-box,
+.stats {
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Light Theme Specific Styles */
+[data-theme="light"] body {
+    background: var(--background-light);
+    color: var(--text-dark);
+}
+
+[data-theme="light"] .navbar {
+    background: rgba(240, 248, 255, 0.95);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+[data-theme="light"] .feature-card,
+[data-theme="light"] .detail-box,
+[data-theme="light"] .stats {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .nav-link {
+    color: var(--text-dark);
+}
+
+[data-theme="light"] .nav-link:hover {
+    color: var(--primary-color);
+}
+
+[data-theme="light"] .hero {
+    background: linear-gradient(rgba(240, 248, 255, 0.9), rgba(240, 248, 255, 0.95)),
+                url('https://source.unsplash.com/1600x900/?fitness,gym') no-repeat center/cover;
+}
+
+[data-theme="light"] .section-title {
+    color: var(--text-dark);
+}
+
+/* Ensure smooth transitions for theme changes */
+body,
+.navbar,
+.hero,
+.feature-card,
+.detail-box,
+.stats {
+    transition: all 0.3s ease-in-out;
+}
